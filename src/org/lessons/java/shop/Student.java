@@ -13,7 +13,7 @@ public class Student {
     }
 
     public String getStudet() {
-        return firstName + " " + lasetName + "," + " " + age;
+        return firstName + " " + lasetName + "," + " " + age + " | ";
     }
 
 }
