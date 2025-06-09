@@ -14,7 +14,7 @@ public class Main {
 
         while (userChoise != 0) {
             System.out.println(
-                    "Premere 1 per visualizzare il prodotto, 2 per visualizzare la lista degli studenti, 3 per accedere al tuo conto bancario, 4 per aggiungere uno studente, 0 per uscire");
+                    "Premere 1 per visualizzare il prodotto, 2 per visualizzare la lista degli studenti, 3 per aggiungere uno studente, 4 per accedere al tuo conto bancario, 0 per uscire ");
 
             userChoise = input.nextInt();
 
@@ -38,13 +38,32 @@ public class Main {
                 case 2:
                     System.out.println(register.getStudents());
                     break;
+
                 case 3:
+
+                    input.nextLine();
+
+                    System.out.println("Inserisci il nome dello studente:");
+                    String firsName = input.nextLine();
+
+                    System.out.println("Inserisci il cognome dello studente:");
+                    String lastName = input.nextLine();
+
+                    System.out.println("Inserisci l'eta dello studente:");
+                    int age = input.nextInt();
+
+                    register.setStudent(firsName, lastName, age);
+
+                    System.out.println("Studente inserito correttamente");
+                    break;
+
+                case 4:
 
                     int operation = 0;
 
                     do {
                         System.out.println(
-                                "Inserire 1 per visualizzare il saldo, 2 per effettuare un prelievo, 3 per effettuare un versamento, 4 per tornare al menu iniziale");
+                                "Inserire 1 per visualizzare il saldo, 2 per effettuare un prelievo, 3 per effettuare un versamento, 0 per tornare al menu iniziale");
                         operation = input.nextInt();
 
                         switch (operation) {
@@ -64,25 +83,8 @@ public class Main {
                                 System.out.println(account1.deposit(depositAmount));
                                 break;
                         }
-                    } while ((operation != 4));
+                    } while ((operation != 0));
 
-                case 4:
-
-                    input.nextLine();
-
-                    System.out.println("Inserisci il nome dello studente:");
-                    String firsName = input.nextLine();
-
-                    System.out.println("Inserisci il cognome dello studente:");
-                    String lastName = input.nextLine();
-
-                    System.out.println("Inserisci l'eta dello studente:");
-                    int age = input.nextInt();
-
-                    register.setStudent(firsName, lastName, age);
-
-                    System.out.println("Studente inserito correttamente");
-                    break;
             }
         }
         input.close();
