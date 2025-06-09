@@ -6,25 +6,38 @@ import java.util.Random;
 
 public class Product {
 
-    public int code;
-    public String name;
-    public String description;
-    public BigDecimal price;
-    public BigDecimal iva;
+    private int code;
+    private String name;
+    private String brand;
+    private BigDecimal price;
+    private BigDecimal iva;
 
-    public Product(String name, String description, BigDecimal price, BigDecimal iva) {
+    public Product(String name, String brand, BigDecimal price, BigDecimal iva) {
         Random r = new Random();
         this.code = r.nextInt(5000);
         this.name = name;
-        this.description = description;
+        this.brand = brand;
         this.price = price;
         this.iva = iva;
     };
 
+    public Product() {
+        Random r = new Random();
+        this.code = r.nextInt(5000);
+        this.name = "No name";
+        this.brand = "No brand";
+        this.price = new BigDecimal(0);
+        this.iva = new BigDecimal(22);
+    }
+
     public BigDecimal getBasePrice() {
         // stampa prezzo senza iva
-        return price;
+        return this.price;
     };
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
 
     public BigDecimal getTaxedPrice() {
         // stampa prezzo con iva
@@ -43,6 +56,34 @@ public class Product {
     };
 
     public String getFullName() {
-        return code + "-" + name;
+        return this.code + "-" + this.name;
     };
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getBrand() {
+        return this.brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    public int getCode() {
+        return this.code;
+    }
+
+    public BigDecimal getIva() {
+        return this.iva;
+    }
+
+    public void setIva(BigDecimal iva) {
+        this.iva = iva;
+    }
 }

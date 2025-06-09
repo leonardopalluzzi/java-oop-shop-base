@@ -8,8 +8,8 @@ public class Main {
         Product prodotto1 = new Product(("iPhone"), "telefono bello ma costoso", new BigDecimal(900),
                 new BigDecimal(22));
 
-        String printProduct = "Codice prodotto: " + prodotto1.code + " | " + "nome: " + prodotto1.name + " | "
-                + "descrizione: " + prodotto1.description + " | "
+        String printProduct = "Codice prodotto: " + prodotto1.getCode() + " | " + "nome: " + prodotto1.getName() + " | "
+                + "marca: " + prodotto1.getBrand() + " | "
                 + "Prezzo (esclusa iva): " + String.format("%.2f", prodotto1.getBasePrice()) + " euro | "
                 + "Prezzo (inclusa iva): "
                 + String.format("%.2f", prodotto1.getTaxedPrice()) + " euro | "
