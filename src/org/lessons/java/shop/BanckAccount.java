@@ -26,14 +26,20 @@ public class BanckAccount {
 
     // prelievo
     public String withdrawal(BigDecimal amount) {
-        if (balance.compareTo(amount) >= 0) {
-            this.balance = balance.subtract(amount);
-            String message = "Withdrawal successful";
+        if (amount.compareTo(new BigDecimal(0)) < 0) {
+            String message = "You cannot withdrawal a negative amount";
             return message;
         } else {
-            String message = "Insufficient balance";
-            return message;
+            if (balance.compareTo(amount) >= 0) {
+                this.balance = balance.subtract(amount);
+                String message = "Withdrawal successful";
+                return message;
+            } else {
+                String message = "Insufficient balance";
+                return message;
+            }
         }
+
     }
 
     // ottieni saldo
